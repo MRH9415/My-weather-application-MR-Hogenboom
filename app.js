@@ -12,9 +12,15 @@ function search(event) {
   let city = searchInputElement.value;
 
   let apiKey = "b2a5adcct04b33178913oc335f405433";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 
-  axios.get(apiUrl).then(displayTemperature);
+function getForecast (city) {
+let apiKey = "c9b0ec623aacc60coeb8df5a545t1489";
+let apiUrl =
+  "https://api.shecodes.io/weather/v1/current?query=$[city]&key=${apikey}&units=metric;
+console.log {apiUrl};
 }
 
 function formatDate(date) {
@@ -77,6 +83,9 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHtml;
 }
 
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHtml;
-}
+ let searchFormElement = document.querySelector ("search-form");
+ searchFormElement.addEventListener("submit", handlesearchSubmit);
+
+ SearchCity ("Amsterdam");
+ getForecast ("Amsterdam");
+ displayForecast();
